@@ -1,0 +1,44 @@
+{
+    "name":"hiromi2424/cakephp-slack-log-engine",
+    "description":"Slack log engine for CakePHP",
+    "type":"cakephp-plugin",
+    "keywords":[
+        "cakephp",
+        "cake",
+        "log",
+        "slack"
+    ],
+    "homepage":"https://github.com/hiromi2424/cakephp-slack-log-engine",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Hiroki Shimizu",
+            "role":"Author",
+            "homepage":"https://github.com/hiromi2424/"
+        }
+    ],
+    "require":{
+        "cakephp/cakephp": "~3.0",
+        "maknz/slack": "~1.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SlackLogEngine\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SlackLogEngine\\Test\\": "tests",
+            "Cake\\Test\\Fixture\\": "./vendor/cakephp/cakephp/tests/Fixture"
+        }
+    },
+    "suggest": {
+    },
+    "support":{
+        "source":"https://github.com/hiromi2424/cakephp-slack-log-engine",
+        "issues":"https://github.com/hiromi2424/cakephp-slack-log-engine/issues"
+    }
+}
