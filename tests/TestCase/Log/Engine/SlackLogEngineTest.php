@@ -70,7 +70,8 @@ class SlackLogEngineTest extends TestCase
         // test hookUrl option
         $clientClass = $this->getMockClass(
             '\Maknz\Slack\Client',
-            ['send']);
+            ['send']
+        );
         $this->SlackLogEngine = new SlackLogEngine([
             'hookUrl' => 'http://example.com',
             'clientClass' => $clientClass,
@@ -83,5 +84,4 @@ class SlackLogEngineTest extends TestCase
         $result = $this->SlackLogEngine->log('test', 'error');
         $this->assertTrue($result);
     }
-
 }

@@ -1,7 +1,9 @@
 <?php
 namespace SlackLogEngine\Test\TestSuite;
+
 use Cake\Core\Plugin;
 use Cake\TestSuite\TestSuite;
+
 class AllTest extends \PHPUnit_Framework_TestSuite
 {
     public static function suite()
@@ -13,6 +15,7 @@ class AllTest extends \PHPUnit_Framework_TestSuite
             return $suite;
         }
         $suite->addTestDirectoryRecursive($testPath);
+
         return $suite;
     }
 }

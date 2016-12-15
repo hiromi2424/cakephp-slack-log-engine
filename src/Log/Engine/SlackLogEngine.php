@@ -2,8 +2,8 @@
 
 namespace SlackLogEngine\Log\Engine;
 
-use Cake\Log\Engine\BaseLog;
 use Cake\Core\Configure;
+use Cake\Log\Engine\BaseLog;
 
 use Exception;
 
@@ -59,7 +59,7 @@ class SlackLogEngine extends BaseLog
         if (isset($config['client'])) {
             $this->_SlackClient = $config['client'];
             unset($config['client']);
-        } else if (isset($config['hookUrl'])) {
+        } elseif (isset($config['hookUrl'])) {
             $hookUrl = $config['hookUrl'];
             $className = $config['clientClass'];
             unset($config['hookUrl'], $config['clientClass']);
@@ -108,7 +108,7 @@ class SlackLogEngine extends BaseLog
             // otherwise DO nothing
             return false;
         }
+
         return true;
     }
-
 }
