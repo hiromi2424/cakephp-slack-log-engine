@@ -4,8 +4,8 @@ namespace SlackLogEngine\Log\Engine;
 
 use Cake\Core\Configure;
 use Cake\Log\Engine\BaseLog;
-
 use Exception;
+use Maknz\Slack\Client as SlackClient;
 
 /**
  * Log engine to post to slack with hook url.
@@ -69,7 +69,6 @@ class SlackLogEngine extends BaseLog
         }
     }
 
-
     /**
      * Get slack client
      *
@@ -78,6 +77,20 @@ class SlackLogEngine extends BaseLog
     public function getClient()
     {
         return $this->_SlackClient;
+    }
+
+    /**
+     * Set slack client
+     *
+     * @param \Maknz\Slack\Client $client slack client
+     * @return \Maknz\Slack\Client slack client
+     */
+    public function setClient(SlackClient $client)
+    {
+        $this->_SlackClient = $client;
+        $this->_valid = true;
+
+        return $client;
     }
 
     /**

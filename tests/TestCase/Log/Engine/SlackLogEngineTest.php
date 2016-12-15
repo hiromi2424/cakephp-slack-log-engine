@@ -1,10 +1,16 @@
 <?php
 namespace SlackLogEngine\Test\TestCase\Log\Engine;
 
+use Cake\Core\Configure;
 use Cake\TestSuite\TestCase;
+use Exception;
 use Maknz\Slack\Client as SlackClient;
 
 use SlackLogEngine\Log\Engine\SlackLogEngine;
+
+class TestException extends Exception
+{
+}
 
 class SlackLogEngineTest extends TestCase
 {
@@ -83,5 +89,59 @@ class SlackLogEngineTest extends TestCase
             ->method('send');
         $result = $this->SlackLogEngine->log('test', 'error');
         $this->assertTrue($result);
+
+        // test invalid and setClient()
+        $this->SlackLogEngine = new SlackLogEngine([
+            'scopes' => [],
+            'levels' => ['error']
+        ]);
+        $this->assertFalse($this->SlackLogEngine->log('test', 'error'));
+        $this->client = $this->getMockBuilder('\Maknz\Slack\Client')
+            ->setMethods(['send'])
+            ->setConstructorArgs(['http://example.com'])
+            ->getMock();
+        $this->client->expects($this->once())
+            ->method('send');
+        $this->SlackLogEngine->setClient($this->client);
+        $result = $this->SlackLogEngine->log('test', 'error');
+        $this->assertTrue($result);
+
+        // test exception
+        $this->client = $this->getMockBuilder('\Maknz\Slack\Client')
+            ->setMethods(['send'])
+            ->setConstructorArgs(['http://example.com'])
+            ->getMock();
+        $this->SlackLogEngine = new SlackLogEngine([
+            'client' => $this->client,
+            'scopes' => [],
+            'levels' => ['error']
+        ]);
+        Configure::write('debug', false);
+        $this->client->expects($this->once())
+            ->method('send')
+            ->will($this->throwException(new Exception));
+        $result = $this->SlackLogEngine->log('test', 'error');
+        $this->assertFalse($result);
+
+        // test exception on debug mode
+        $this->client = $this->getMockBuilder('\Maknz\Slack\Client')
+            ->setMethods(['send'])
+            ->setConstructorArgs(['http://example.com'])
+            ->getMock();
+        $this->SlackLogEngine = new SlackLogEngine([
+            'client' => $this->client,
+            'scopes' => [],
+            'levels' => ['error']
+        ]);
+        Configure::write('debug', true);
+        $this->client->expects($this->once())
+            ->method('send')
+            ->will($this->throwException(new TestException('testException')));
+        try {
+            $this->SlackLogEngine->log('test', 'error');
+            $this->fail('Expected exception was not thrown');
+        } catch (TestException $e) {
+            $this->assertSame('testException', $e->getMessage());
+        }
     }
 }
