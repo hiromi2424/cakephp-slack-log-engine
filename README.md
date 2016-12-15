@@ -20,7 +20,7 @@ composer require hiromi2424/cakephp-slack-log-engine
 ## Requirements
 
 * CakePHP 3.x
-* PHP 5.4+
+* PHP 5.5+
 
 ## Log options
 
