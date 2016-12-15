@@ -9,7 +9,7 @@ This is CakePHP plugin to provide a log engine that post to slack using incoming
 
 Please see detail [how to configure webhooks on slack](https://api.slack.com/incoming-webhooks).
 
-The engine uses [Slack for PHP](https://github.com/maknz/slack#settings) and is just thin wrapper for the library.
+The engine uses [Slack for PHP](https://github.com/maknz/slack) and is just thin wrapper for the library.
 
 ## Installation
 
