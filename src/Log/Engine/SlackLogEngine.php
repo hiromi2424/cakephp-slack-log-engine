@@ -29,7 +29,10 @@ class SlackLogEngine extends BaseLog
      * @var array
      */
     protected $_defaultConfig = [
-        'clientClass' => '\Maknz\Slack\Client'
+        'types' => null,
+        'levels' => [],
+        'scopes' => [],
+	    'clientClass' => '\Maknz\Slack\Client'
     ];
 
     /**
