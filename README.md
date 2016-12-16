@@ -1,7 +1,7 @@
 [![Build Status](https://img.shields.io/travis/hiromi2424/cakephp-slack-log-engine/master.svg?style=flat-square)](https://travis-ci.org/hiromi2424/cakephp-slack-log-engine)
 [![Coverage Status](https://img.shields.io/codecov/c/github/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://codecov.io/github/hiromi2424/cakephp-slack-log-engine)
 [![Total Downloads](https://img.shields.io/packagist/dt/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://packagist.org/packages/hiromi2424/cakephp-slack-log-engine)
-[![Latest Stable Version](https://img.shields.io/packagist/v/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://packagist.org/packages/hiromi2424/cakephp-slack-log-engine)
+[![Latest Stable Version](https://img.shields.io/packagist/vpre/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://packagist.org/packages/hiromi2424/cakephp-slack-log-engine)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/hiromi2424/cakephp-slack-log-engine.svg)](https://scrutinizer-ci.com/g/hiromi2424/cakephp-slack-log-engine/)
 
 ## What is this?
