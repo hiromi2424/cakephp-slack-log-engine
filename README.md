@@ -2,6 +2,7 @@
 [![Coverage Status](https://img.shields.io/codecov/c/github/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://codecov.io/github/hiromi2424/cakephp-slack-log-engine)
 [![Total Downloads](https://img.shields.io/packagist/dt/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://packagist.org/packages/hiromi2424/cakephp-slack-log-engine)
 [![Latest Stable Version](https://img.shields.io/packagist/v/hiromi2424/cakephp-slack-log-engine.svg?style=flat-square)](https://packagist.org/packages/hiromi2424/cakephp-slack-log-engine)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/hiromi2424/cakephp-slack-log-engine.svg)](https://scrutinizer-ci.com/g/hiromi2424/cakephp-slack-log-engine/)
 
 ## What is this?
 
@@ -22,7 +23,23 @@ composer require hiromi2424/cakephp-slack-log-engine
 * CakePHP 3.x
 * PHP 5.5+
 
-## Log options
+## Usage
+
+### Configure log
+
+In your app.php, you can configure like:
+
+    'Log' => [
+        'error' => [
+            'className' => 'SlackLogEngine\Log\Engine\SlackLogEngine',
+            // Your slack hook URL here
+            'hookUrl' => 'https://hooks.slack.com/services/xxxxx/xxxxx/xxxxxxxxxx',
+            // Send logs of following levels to slack
+            'levels' => ['error', 'critical', 'alert', 'emergency'],
+        ],
+    ],
+
+### Log options
 
 Either `client` or `hookUrl` is required.
 
