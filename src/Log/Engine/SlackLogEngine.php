@@ -111,7 +111,7 @@ class SlackLogEngine extends BaseLog
         $message = $this->_format($message, $context);
         $output = date('Y-m-d H:i:s') . ' ' . ucfirst($level) . ': ' . $message;
         try {
-            $this->_SlackClient->send($message);
+            $this->_SlackClient->send($output);
         } catch (Exception $e) {
             $this->_valid = false;
             // Rethrow exception when debug mode
