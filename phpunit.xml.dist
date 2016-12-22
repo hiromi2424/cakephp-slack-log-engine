@@ -6,7 +6,7 @@
 	bootstrap="./tests/bootstrap.php">
 
 	<testsuites>
-		<testsuite name="Crud">
+		<testsuite name="SlackLogEngine">
 			<directory>./tests/</directory>
 		</testsuite>
 	</testsuites>
